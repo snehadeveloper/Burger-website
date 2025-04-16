@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burger Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        function toggleMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
+
+        // Function to toggle dark mode
+        function toggleDarkMode() {
+            const darkMode = document.documentElement.classList.toggle('dark');
+            localStorage.setItem('theme', darkMode ? 'dark' : 'light');
+        }
+
+        // On page load, check the stored theme
+        document.addEventListener('DOMContentLoaded', () => {
+            if (localStorage.getItem('theme') === 'dark') {
+                document.documentElement.classList.add('dark');
+            }
+        });
+    </script>
+    <style>
+        @keyframes jump {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .jump-effect {
+            animation: jump 1s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-r from-yellow-400 via-red-500 to-orange-500 dark:bg-gray-900 dark:text-white">
+    
+    <!-- Navigation Bar -->
+    <nav class="bg-gray-900 text-white p-4 shadow-lg dark:bg-gray-800">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-yellow-400">Burger Hub</h1>
+            <div class="flex items-center">
+                <ul class="hidden md:flex space-x-6">
+                    <li><a href="#home" class="hover:text-yellow-300">Home</a></li>
+                    <li><a href="#menu" class="hover:text-yellow-300">Menu</a></li>
+                    <li><a href="#about" class="hover:text-yellow-300">About</a></li>
+                    <li><a href="#contact" class="hover:text-yellow-300">Contact</a></li>
+                </ul>
+                <button onclick="toggleDarkMode()" class="ml-4 p-2 bg-yellow-400 text-gray-900 font-bold rounded-lg shadow-md dark:bg-gray-700 dark:text-white">🌙</button>
+                <button onclick="toggleMenu()" class="md:hidden text-yellow-400 text-2xl ml-4">☰</button>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <ul id="mobile-menu" class="hidden bg-gray-800 text-white shadow-md p-4 space-y-4 text-center dark:bg-gray-700">
+        <li><a href="index.html" class="block hover:text-yellow-300">Home</a></li>
+        <li><a href="menu.html" class="block hover:text-yellow-300">Menu</a></li>
+        <li><a href="#about" class="block hover:text-yellow-300">About</a></li>
+        <li><a href="#contact" class="block hover:text-yellow-300">Contact</a></li>
+    </ul>
+    
+    <!-- Hero Section -->
+    <section id="home" class="text-center py-16 px-4 bg-yellow-300 animate-fade-in flex flex-col md:flex-row items-center justify-center dark:bg-gray-800">
+        <div class="md:w-1/2">
+            <h2 class="text-5xl font-extrabold text-white dark:text-yellow-400">Delicious Burgers, Made Fresh!</h2>
+            <p class="mt-4 text-lg text-white dark:text-gray-300">Order now and satisfy your cravings with our mouth-watering burgers.</p>
+            <button class="mt-6 px-6 py-3 bg-white text-red-500 font-bold rounded-lg shadow-md hover:bg-gray-200 transition-transform transform hover:scale-105 dark:bg-gray-700 dark:text-white">Order Now</button>
+        </div>
+        <div class="md:w-1/2 mt-8 md:mt-0 flex justify-center">
+            <img src="https://github.com/lightcodecamp/responsive-burger-website/blob/main/img/burger-6.png?raw=true" alt="Burger" class="w-64 jump-effect shadow-lg rounded-lg">
+        </div>
+    </section>
+    
+    
+    <!-- Menu Section -->
+    <section id="menu" class="py-16 px-4">
+        <h2 class="text-4xl font-extrabold text-center text-white dark:text-yellow-400">Our Menu</h2>
+        <div class="mt-8 grid md:grid-cols-3 gap-8">
+            <div class="bg-white p-4 shadow-lg rounded-lg text-center transform hover:scale-105 transition-transform">
+                <img src="https://github.com/lightcodecamp/responsive-burger-website/blob/main/img/burger-6.png?raw=true" alt="Burger" class="mx-auto mb-4 jump-effect">
+                <h3 class="text-xl font-semibold">Classic Burger</h3>
+                <p class="text-gray-600">$5.99</p>
+            </div>
+            <div class="bg-white p-4 shadow-lg rounded-lg text-center transform hover:scale-105 transition-transform">
+                <img src="https://github.com/lightcodecamp/responsive-burger-website/blob/main/img/burger-3.png?raw=true" alt="Burger" class="mx-auto mb-4 jump-effect">
+                <h3 class="text-xl font-semibold">Cheese Burger</h3>
+                <p class="text-gray-600">$6.99</p>
+            </div>
+            <div class="bg-white p-4 shadow-lg rounded-lg text-center transform hover:scale-105 transition-transform">
+                <img src="https://images.unsplash.com/photo-1620041630998-e147e143468c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTl8fHNuYWNrc3xlbnwwfHwwfHx8MA%3D%3D" alt="Burger" class="mx-auto mb-4 jump-effect">
+                <h3 class="text-xl font-semibold">BBQ Burger</h3>
+                <p class="text-gray-600">$7.99</p>
+            </div>
+            <div class="bg-white p-4 shadow-lg rounded-lg text-center transform hover:scale-105 transition-transform">
+                <img src="https://plus.unsplash.com/premium_photo-1672774750509-bc9ff226f3e8?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZnJpZXN8ZW58MHx8MHx8fDA%3D" alt="Burger" class="mx-auto mb-4 jump-effect">
+                <h3 class="text-xl font-semibold">periperi-Fries</h3>
+                <p class="text-gray-600">$6.99</p>
+            </div>
+            <div class="bg-white p-4 shadow-lg rounded-lg text-center transform hover:scale-105 transition-transform">
+                <img src="https://images.unsplash.com/photo-1573140401552-3fab0b24306f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODB8fHNuYWNrc3xlbnwwfHwwfHx8MA%3D%3D" alt="Burger" class="mx-auto mb-4 jump-effect">
+                <h3 class="text-xl font-semibold">Fries</h3>
+                <p class="text-gray-600">$4.99</p>
+            </div>
+            <div class="bg-white p-4 shadow-lg rounded-lg text-center transform hover:scale-105 transition-transform">
+                <img src="https://images.unsplash.com/photo-1536974851270-95538a335a81?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8c25hY2tzfGVufDB8fDB8fHww" alt="Burger" class="mx-auto mb-4 jump-effect">
+                <h3 class="text-xl font-semibold">pingles</h3>
+                <p class="text-gray-600">$8.99</p>
+            </div>
+            <div class="bg-white p-4 shadow-lg rounded-lg text-center transform hover:scale-105 transition-transform">
+                <img src="https://github.com/lightcodecamp/responsive-burger-website/blob/main/img/beverage-1.png?raw=true" alt="Burger" class="mx-auto mb-4 jump-effect">
+                <h3 class="text-xl font-semibold">Banana smootie</h3>
+                <p class="text-gray-600">$9.99</p>
+            </div>
+            <div class="bg-white p-4 shadow-lg rounded-lg text-center transform hover:scale-100 transition-transform">
+                <img src="https://plus.unsplash.com/premium_photo-1664392073748-35c3a1c3c385?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YmV2cmFnZXMlMjBhbmQlMjBqdWljZXN8ZW58MHx8MHx8fDA%3D" alt="Burger" class="mx-auto mb-4 jump-effect">
+                <h3 class="text-xl font-semibold">starwberry smootie</h3>
+                <p class="text-gray-600">$4.99</p>
+            </div>
+            <div class="bg-white p-4 shadow-lg rounded-lg text-center transform hover:scale-105 transition-transform">
+                <img src="https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YmV2cmFnZXMlMjBhbmQlMjBqdWljZXN8ZW58MHx8MHx8fDA%3D" alt="Burger" class="mx-auto mb-4 jump-effect">
+                <h3 class="text-xl font-semibold">Apple smootie </h3>
+                <p class="text-gray-600">$5.99</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer Section -->
+    <footer class="bg-gray-900 text-white py-12 mt-16 dark:bg-gray-800">
+        <div class="container mx-auto px-6 md:px-12">
+            <p class="text-center text-gray-400 dark:text-gray-300">&copy; 2025 Burger Hub. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
